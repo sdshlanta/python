@@ -37,7 +37,7 @@ def playsnake(Var):
 
 def microsoftRewards(Var):
     log_use("Rewards")
-    os.system("python " + userprofile +"/Documents/python/fun/bing_searcher.py" )
+    os.system("python " + userprofile +"/Documents/python/extra/microsoft_rewards.py" )
     print(Var)
 
 class Application(tk.Frame):
