@@ -12,14 +12,13 @@ root = tk.Tk()
 
 userprofile = str(os.environ['USERPROFILE'])
 
-def log_use(program_used):
+def log_use(program_used):# not currently in use
     """Check which programs are being used the most - or even at all"""
     try:
         os.popen("python " + userprofile + "/Documents/python/gui_interface/log_uses.py " + program_used)
     except:
         pass
 
-log_use("LAUNCHED")
 
 ## These are the defs for menubar tabs ##
 def make_shortcut(Var):
@@ -31,12 +30,10 @@ def install_depends(Var):
     print(Var)
 
 def playsnake(Var):
-    log_use("SNAKE")
     os.popen("pythonw " + userprofile +"/Documents/python/pygame/snake.py" )
     print(Var)
 
 def microsoftRewards(Var):
-    log_use("Rewards")
     os.system("python " + userprofile +"/Documents/python/extra/microsoft_rewards.py" )
     print(Var)
 
@@ -70,7 +67,7 @@ class Application(tk.Frame):
         self.pack()
         self.weather_grab_button()
         self.pinger_button()
-        self.caesar_button()
+        self.tstation_button()
         self.port_scanner_button()
 
 
@@ -94,14 +91,14 @@ class Application(tk.Frame):
         b["command"] = self.multiplepinger_launch
         b.pack(padx=3, pady=10, side='left')
 
-    def caesar_button(self):
-        """Caesar Cipher"""
+    def tstation_button(self):
+        """Translation Station"""
         b = tk.Button(root)
-        image = ImageTk.PhotoImage(file=userprofile + "/Documents/python/icons/caesar_icon.png ")
-        b = tk.Button(self, text="Caesar Cipher", image=image, compound="top")
+        image = ImageTk.PhotoImage(file=userprofile + "/Documents/python/icons/tstation_icon.png ")
+        b = tk.Button(self, text="Translation Station", image=image, compound="top")
         b.config(image=image)
         b.image = image
-        b["command"] = self.caesar_launch
+        b["command"] = self.tstation_launch
         b.pack(padx=3, pady=10, side='left')
 
     def port_scanner_button(self):
@@ -117,22 +114,18 @@ class Application(tk.Frame):
 ## These launch the button programs ##
     def weather_grab_launch(self):
         """Weather Grabber Launcher"""
-        log_use("WEATHER")
         os.popen("python " + userprofile + "/Documents/python/weather/guiWeather.py")
 
     def multiplepinger_launch(self):
         """Multiple Pinger Launcher"""
-        log_use("MULTIPLE_PINGER")
         os.system("start " + userprofile + "/Documents/python/gui_interface/bat_launchers/pinglaunch.bat")
     
-    def caesar_launch(self):
-        """Caesar Cipher Launcher"""
-        log_use("CIPHER")
-        os.system("start " + userprofile + "/Documents/python/gui_interface/bat_launchers/launch_caesar.bat")
+    def tstation_launch(self):
+        """Translation Station Launcher"""
+        os.system("start " + userprofile + "/Documents/python/gui_interface/bat_launchers/launch_tstation.bat")
 
     def port_scanner_launch(self):
         """Port Scanner Launcher"""
-        log_use("PORT_SCAN")
         os.popen("start " + userprofile + "/Documents/python/gui_interface/bat_launchers/portScanner.bat")
 ##########################################################
 
